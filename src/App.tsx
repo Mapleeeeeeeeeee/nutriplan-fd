@@ -15,7 +15,7 @@ import './index.css';
 function App() {
   return (
     <HelmetProvider>
-      <BrowserRouter basename={import.meta.env.BASE_URL}>
+      <BrowserRouter basename="/nutriplan-fd">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/articles" element={<ArticlesPage />} />
