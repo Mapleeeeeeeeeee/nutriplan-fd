@@ -1,7 +1,9 @@
 import { useGamification } from '../../hooks/useGamification';
 
 export function XPBar() {
-    const { level, xp, nextLevelXp, levelProgress } = useGamification();
+    const { progress } = useGamification();
+    const { level, currentXP, nextLevelXP } = progress;
+    const levelProgress = nextLevelXP > 0 ? (currentXP / nextLevelXP) * 100 : 0;
 
     return (
         <div className="flex items-center gap-3 bg-gray-50 rounded-full px-3 py-1.5 border border-gray-200">
@@ -14,7 +16,7 @@ export function XPBar() {
             <div className="flex flex-col w-20 sm:w-24">
                 <div className="flex justify-between text-[10px] text-gray-500 font-medium mb-0.5">
                     <span>LV.{level}</span>
-                    <span>{xp}/{nextLevelXp}</span>
+                    <span>{currentXP}/{nextLevelXP}</span>
                 </div>
                 <div className="w-full h-1.5 bg-gray-200 rounded-full overflow-hidden">
                     <div
